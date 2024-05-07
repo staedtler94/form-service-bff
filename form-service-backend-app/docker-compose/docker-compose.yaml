@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  sample-mongo-db:
+    container_name: forms-mongodb
+    image: mongo:latest
+    volumes: 
+      - ./data/mongoDB_store:/data/db
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_DATABASE: forms
+
+secrets:
+  mongo_sample_password:
+    file: ./mongo_sample_password.txt
